@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* 
+   LamePowerz (C) Dz3n 2019
+   GitHub: https://github.com/feel-the-dz3n/lamepowerz
+   
+   File: Log.cs
+   Why:  Log stuff for modules
+*/
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

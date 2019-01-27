@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* 
+   LamePowerz (C) Dz3n 2019
+   GitHub: https://github.com/feel-the-dz3n/lamepowerz
+   
+   File: Program.cs
+   Why:  Entry point of programs, global stuff
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -27,6 +34,10 @@ namespace LamePowerz
             if (args != null)
                 Arguments = args;
 
+#if DEBUG
+            Brute.Radmin.CheckCombination("127.0.0.1", 4899, "Dz3n", "12345678");
+#endif
+
             for(int i = 0; i < Arguments.Length; i++)
             {
                 string arg = Arguments[i];
@@ -34,19 +45,18 @@ namespace LamePowerz
                 if (arg.ToLower() == "radmin")
                 {
                     if(Arguments.Length <= 1)
-                        PrintHelp(arg);
+                        PrintHelp(true, arg);
                 }
                 else
                 {
-                    PrintHelp();
-                    Environment.Exit(1);
+                    PrintHelp(true);
                 }
             }
             
             Application.Run(new MainMenu());
         }
 
-        private static void PrintHelp(string mod = null, string task = null)
+        private static void PrintHelp(bool exit = true, string mod = null, string task = null)
         {
             Log.WriteLine("LamePowerz v" + Version);
             Log.WriteLine("");
@@ -83,6 +93,9 @@ namespace LamePowerz
                 Log.WriteLine("Arguments marked with * are optional.");
                 Log.WriteLine("");
             }
+
+            if (exit)
+                Environment.Exit(1);
         }
     }
 }
