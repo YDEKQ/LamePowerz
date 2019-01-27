@@ -57,6 +57,8 @@ namespace LamePowerz
                 Log.Write("Available modules: ");
                 foreach (var module in AvailableModules)
                     Log.Write(module + " ");
+
+                Log.WriteLine("");
                 Log.WriteLine("");
 
                 Log.WriteLine("To get module help, use:");
