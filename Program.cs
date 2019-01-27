@@ -33,7 +33,8 @@ namespace LamePowerz
 
                 if (arg.ToLower() == "radmin")
                 {
-
+                    if(Arguments.Length <= 1)
+                        PrintHelp(arg);
                 }
                 else
                 {
