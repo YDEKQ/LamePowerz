@@ -22,9 +22,9 @@ namespace LamePowerz
             Module = module;
 
             if(betterName == null)
-                writer = new StreamWriter($"{module.ToString()}_{DateTime.Now.ToString().Replace(":", ".")}");
+                writer = new StreamWriter($"{module.ToString()}_{DateTime.Now.ToString().Replace(":", ".")}.log");
             else
-                writer = new StreamWriter($"{betterName}_{DateTime.Now.ToString().Replace(":", ".")}");
+                writer = new StreamWriter($"{betterName}_{DateTime.Now.ToString().Replace(":", ".")}.log");
 
             writer.AutoFlush = true;
         }

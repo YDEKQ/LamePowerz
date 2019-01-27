@@ -11,6 +11,7 @@ namespace LamePowerz
         public static LogTool Log = new LogTool();
         public static string[] Arguments = { };
         public static Version Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+        private static string[] AvailableModules = { "radmin" };
 
         /// <summary>
         /// The main entry point for the application.
@@ -44,10 +45,41 @@ namespace LamePowerz
             Application.Run(new MainMenu());
         }
 
-        private static void PrintHelp()
+        private static void PrintHelp(string mod = null, string task = null)
         {
             Log.WriteLine("LamePowerz v" + Version);
             Log.WriteLine("");
+            Log.WriteLine("Usage: LamePowerz [module] [task] \"[paramX]=[valueX]\"");
+            Log.WriteLine("");
+
+            if (mod == null)
+            {
+                Log.Write("Available modules: ");
+                foreach (var module in AvailableModules)
+                    Log.Write(module + " ");
+                Log.WriteLine("");
+
+                Log.WriteLine("To get module help, use:");
+                Log.WriteLine("LamePowerz [module] help");
+                Log.WriteLine("");
+                Log.WriteLine("Example: LamePowerz  radmin  help");
+                Log.WriteLine("                     ^module ^task");
+                Log.WriteLine("");
+            }
+            else
+            {
+                Log.WriteLine($"{mod} tasks:");
+                Log.WriteLine("");
+                if (mod.ToLower() == "radmin")
+                {
+                    foreach (var t in Brute.Radmin.Tasks)
+                        Log.WriteLine(t);
+                }
+
+                Log.WriteLine("");
+                Log.WriteLine("Arguments marked with * are optional.");
+                Log.WriteLine("");
+            }
         }
     }
 }
