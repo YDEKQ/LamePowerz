@@ -14,6 +14,22 @@ namespace LamePowerz
         public MainMenu()
         {
             InitializeComponent();
+
+            Program.AllForms.Add(this);
+        }
+
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Do you really want to quit? Press No to hide all windows", "LamePowerz", MessageBoxButtons.YesNoCancel, MessageBoxIcons.None);
+
+            if (result == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
     }
 }
