@@ -20,7 +20,7 @@ namespace LamePowerz
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var result = MessageBox.Show("Do you really want to quit? Press No to hide all windows", "LamePowerz", MessageBoxButtons.YesNoCancel, MessageBoxIcons.None);
+            var result = MessageBox.Show("Do you really want to quit? Press No to hide all windows", "LamePowerz", MessageBoxButtons.YesNoCancel, MessageBoxIcon.None);
 
             if (result == DialogResult.Yes)
             {
