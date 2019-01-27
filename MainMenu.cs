@@ -28,7 +28,14 @@ namespace LamePowerz
             }
             else if (result == DialogResult.No)
             {
+                e.Cancel = true;
 
+                foreach (var wnd in Program.AllForms)
+                    wnd.Hide();
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                e.Cancel = true;
             }
         }
     }

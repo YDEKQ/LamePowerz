@@ -47,7 +47,7 @@ namespace LamePowerz
         private static void PrintHelp()
         {
             Log.WriteLine("LamePowerz v" + Version);
-            Log.WriteLine("")
+            Log.WriteLine("");
         }
     }
 }
